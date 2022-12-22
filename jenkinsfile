@@ -1,24 +1,22 @@
 pipeline {
-    agent any
+   
+   agent any
     
-     realtimeJUnit('**/target/surefire-reports/TEST-*.xml') {
-    sh 'mvn -Dmaven.test.failure.ignore=true clean verify'
-}
 
     stages {
-        stage('Build') {
+        stage('Cleaning Stages') {
             steps {
-                echo 'Building..'
+                bat "mvn clean"
             }
         }
-        stage('Test') {
+        stage('Testing Stage') {
             steps {
-                echo 'Testing..'
+                bat "mvn test"
             }
         }
-        stage('Deploy') {
+        stage('Packaging Stage') {
             steps {
-                echo 'Deploying....'
+                bat "mvn package"
             }
         }
     }
