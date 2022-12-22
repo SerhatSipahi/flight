@@ -6,17 +6,17 @@ pipeline {
     stages {
         stage('Cleaning Stages') {
             steps {
-                sh 'mvn clean'
+                echo 'This is a minimal pipeline1.'
             }
         }
         stage('Testing Stage') {
             steps {
-                sh 'mvn test'
+                echo 'This is a minimal pipeline2.'
             }
         }
         stage('Packaging Stage') {
             steps {
-                sh 'mvn package'
+                echo 'This is a minimal pipeline3.'
             }
         }
     }
