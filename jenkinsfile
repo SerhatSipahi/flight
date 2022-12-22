@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    
+    realtimeJUnit('**/target/surefire-reports/TEST-*.xml') {
+    sh 'mvn -Dmaven.test.failure.ignore=true clean verify'
 
     stages {
         stage('Build') {
@@ -18,4 +21,5 @@ pipeline {
             }
         }
     }
+}
 }
